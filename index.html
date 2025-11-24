@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/goose_logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Goose: AI Business Co-Pilot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary: 176 81% 46%; /* #14D8CC */
+        --secondary: 212 100% 50%; /* #0496FF */
+        --accent: 39 100% 63%; /* #FFC145 */
+        --background: 228 35% 17%; /* #1c203c */
+        --foreground: 270 17% 95%; /* #F5F0F6 */
+      }
+      .goose-logo {
+        background-color: currentColor;
+        -webkit-mask: url('/images/goose_logo.svg') no-repeat center / contain;
+        mask: url('/images/goose_logo.svg') no-repeat center / contain;
+      }
+      
+      /* Proposal Specific Styles */
+      .proposal-gradient {
+        background: linear-gradient(135deg, #1c203c 0%, #2a3052 100%);
+      }
+
+      @media print {
+        @page { margin: 0; size: auto; }
+        body {
+            background-color: white !important;
+            color: black !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .no-print {
+            display: none !important;
+        }
+        .print-break-inside-avoid {
+            break-inside: avoid;
+        }
+        .print-bg-white {
+            background-color: white !important;
+        }
+        .print-text-black {
+            color: black !important;
+        }
+        /* Force dark backgrounds to print if needed, or invert for readability */
+        .proposal-section {
+            break-before: page;
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': 'hsl(var(--primary))',
+              'secondary': 'hsl(var(--secondary))',
+              'accent': 'hsl(var(--accent))',
+              'background': 'hsl(var(--background))',
+              'foreground': 'hsl(var(--foreground))',
+              'background-light': '#2a3052',
+            },
+            animation: {
+              'fade-in-down': 'fadeInDown 0.5s ease-out',
+            },
+            keyframes: {
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+    "firebase-functions": "https://aistudiocdn.com/firebase-functions@^7.0.0",
+    "express": "https://aistudiocdn.com/express@^5.1.0",
+    "cors": "https://aistudiocdn.com/cors@^2.8.5",
+    "pg": "https://aistudiocdn.com/pg@^8.16.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background text-foreground">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

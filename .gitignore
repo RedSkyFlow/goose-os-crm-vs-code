@@ -1,0 +1,26 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Security: Ignore the config file containing secrets
+src/config.ts
+
+# Compiled TypeScript code
+lib/
