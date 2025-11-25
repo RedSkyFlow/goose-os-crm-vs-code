@@ -29,11 +29,10 @@ export const researchProspect = async (req: Request, res: Response) => {
     `;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash-lite-001', // UPGRADED TO 2.0 STABLE
       contents: prompt
     });
 
-    // FIX: Access .text as a property, not a function
     const data = parseAIResponse(response.text);
     res.json(data);
   } catch (error: any) {
@@ -48,11 +47,10 @@ export const generateContent = async (req: Request, res: Response) => {
     const prompt = `Generate ${type} content based on: ${userPrompt}. Return plain text.`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash-lite-001', // UPGRADED
       contents: prompt
     });
 
-    // FIX: Access .text as a property
     res.json({ content: response.text });
   } catch (error: any) {
     console.error("AI Error:", error);
@@ -66,11 +64,10 @@ export const generateLeadList = async (req: Request, res: Response) => {
     const prompt = `Generate mock leads for: ${criteria}. Output JSON: { "leads": [{ "company_name": "...", "domain": "..." }] }`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash-lite-001', // UPGRADED
       contents: prompt
     });
 
-    // FIX: Access .text as a property
     const data = parseAIResponse(response.text);
     res.json(data);
   } catch (error: any) {
