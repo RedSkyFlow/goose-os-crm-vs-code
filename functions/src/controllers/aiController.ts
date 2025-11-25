@@ -86,7 +86,7 @@ export const draftEmail = async (req: Request, res: Response) => {
     const prompt = `Draft a short email based on: '${suggestion}' for deal '${deal.deal_name}'. Output JSON: { "subject": "...", "body": "..." }`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 
