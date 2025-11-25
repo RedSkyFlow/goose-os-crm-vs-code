@@ -29,7 +29,7 @@ export const researchProspect = async (req: Request, res: Response) => {
     `;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 
@@ -48,7 +48,7 @@ export const generateContent = async (req: Request, res: Response) => {
     const prompt = `Generate ${type} content based on: ${userPrompt}. Return plain text.`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 
@@ -66,7 +66,7 @@ export const generateLeadList = async (req: Request, res: Response) => {
     const prompt = `Generate mock leads for: ${criteria}. Output JSON: { "leads": [{ "company_name": "...", "domain": "..." }] }`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 

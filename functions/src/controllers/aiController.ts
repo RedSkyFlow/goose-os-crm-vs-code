@@ -28,7 +28,7 @@ export const summarize = async (req: Request, res: Response) => {
     if (!text) { res.json({ summary: "" }); return; }
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: `Summarize this strictly in 2 sentences: ${text}`
     });
 
@@ -50,7 +50,7 @@ export const generateProposal = async (req: Request, res: Response) => {
     `;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 
@@ -68,7 +68,7 @@ export const nextBestAction = async (req: Request, res: Response) => {
     const prompt = `Based on this deal stage '${deal.stage}', what is the ONE next best action? Output JSON: { "action": "..." }`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: prompt
     });
 
@@ -104,7 +104,7 @@ export const copilotResponse = async (req: Request, res: Response) => {
     const aiPrompt = `You are Goose. User Prompt: ${prompt}. Output JSON: { "response": "..." }`;
 
     const response = await genai.models.generateContent({
-      model: 'gemini-2.0-flash-lite-preview-02-05',
+      model: 'gemini-1.5-flash',
       contents: aiPrompt
     });
 
